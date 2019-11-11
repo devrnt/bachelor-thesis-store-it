@@ -28,17 +28,20 @@ class Theme {
   static TextTheme get _lightTextTheme {
     return TextTheme(
       title: TextStyle(
-        fontSize: 22.0,
+        fontFamily: 'Asap',
+        fontSize: 21.0,
         fontWeight: FontWeight.w700,
         color: kPrimaryText,
       ),
       caption: TextStyle(
-        fontSize: 18.0,
+        fontFamily: 'Asap',
+        fontSize: 17.0,
         color: kPrimaryLight,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w500,
       ),
       subtitle: TextStyle(
-        fontSize: 17.0,
+        fontFamily: 'Asap',
+        fontSize: 16.0,
       ),
     );
   }
@@ -46,16 +49,19 @@ class Theme {
   static TextTheme get _darkTextTheme {
     return TextTheme(
       title: TextStyle(
+        fontFamily: 'Asap',
         fontSize: 22.0,
         fontWeight: FontWeight.w700,
         color: Colors.white,
       ),
       caption: TextStyle(
+        fontFamily: 'Asap',
         fontSize: 18.0,
         color: kPrimaryLight,
         fontWeight: FontWeight.w400,
       ),
       subtitle: TextStyle(
+        fontFamily: 'Asap',
         fontSize: 17.0,
       ),
     );
