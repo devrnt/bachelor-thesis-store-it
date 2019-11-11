@@ -9,4 +9,4 @@ const kAccent = Color(0xFF3A27CE);
 const kAccentLight = Color(0xFFB7ACD2);
 const kAccentDark = Color(0xFF0D038C);
 
-const kScaffoldBackground = Color(0xFFF5F4FA);
+const kScaffoldBackground = Color(0xFFF3F2FA);
