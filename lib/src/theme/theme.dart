@@ -12,6 +12,7 @@ class Theme {
       primaryColor: kPrimary,
       scaffoldBackgroundColor: kScaffoldBackground,
       highlightColor: kAccentLight,
+      iconTheme: IconThemeData(color: kPrimaryLight),
     );
   }
 
@@ -22,6 +23,7 @@ class Theme {
       primaryColor: kPrimaryDark,
       highlightColor: kAccentLight,
       scaffoldBackgroundColor: kScaffoldBackgroundDark,
+      iconTheme: IconThemeData(color: kPrimaryLight),
     );
   }
 
