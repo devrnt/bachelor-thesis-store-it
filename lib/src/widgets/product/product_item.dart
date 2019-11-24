@@ -17,7 +17,7 @@ class ProductItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 28.0, horizontal: 40.0),
         height: itemHeight,
         decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor,
+          color: Theme.of(context).primaryColor,
           borderRadius: BorderRadius.circular(6.0),
           boxShadow: <BoxShadow>[
             BoxShadow(
@@ -58,10 +58,10 @@ class ProductItem extends StatelessWidget {
                     Text(
                       '€${product.price}',
                       style: Theme.of(context).textTheme.body1.copyWith(
-                        color: Theme.of(context).accentColor,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18.0,
-                      ),
+                            color: Theme.of(context).accentColor,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18.0,
+                          ),
                     ),
                   ],
                 ),
