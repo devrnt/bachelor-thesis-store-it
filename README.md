@@ -1,16 +1,27 @@
-# store_it
+# Mobile Flutter Application
 
-A new Flutter project.
+This repository contains the source code for the bachelor thesis [https://github.com/devrnt/bachelor-thesis](https://github.com/devrnt/bachelor-thesis)
 
-## Getting Started
+## Information
+This repository contains the following state management approaches:
+* Scoped Model
+* Provider
+* BLoC with RxDart
+* Redux
+* MobX
 
-This project is a starting point for a Flutter application.
+The base code, containing widgets like a themed button and ainput field, can be found on the `master` branch. 
+For every approach, listed above, is a branch created. Switch to the desired state management branch and run the Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+```
+flutter run
+```
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Demo
+Product list        |  Product details
+:-------------------------:|:-------------------------:
+![Demo](demo/mock-home_screen.png)  | ![Demo dark theme](demo/mock-details_screen.png)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Add product        |  Preferences
+:-------------------------:|:-------------------------:
+![Demo](demo/mock-add_product_screen.png)  | ![Demo dark theme](demo/mock-preferences.png)
