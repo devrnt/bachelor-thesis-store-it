@@ -6,24 +6,32 @@ class ProductTextFormField extends StatelessWidget {
   final String errorText;
   final Function onSaved;
   final String initialValue;
+  final TextInputType keyboardType;
 
   ProductTextFormField({
     @required this.hintText,
     @required this.errorText,
     @required this.onSaved,
-    this.initialValue,
+    this.initialValue = '',
+    this.keyboardType = TextInputType.text,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: keyboardType,
       initialValue: initialValue,
       style: Theme.of(context).textTheme.caption.copyWith(
             fontSize: 16.0,
             color: Theme.of(context).textTheme.title.color,
           ),
       decoration: InputDecoration(
-        border: OutlineInputBorder(),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Theme.of(context).primaryColor),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Theme.of(context).accentColor),
+        ),
         filled: true,
         fillColor: Colors.white,
         hintText: hintText,

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:store_it/src/screens/add_product_screen.dart';
 import 'package:store_it/src/screens/home_screen.dart';
+import 'package:store_it/src/screens/preferences_screen.dart';
 import 'package:store_it/src/theme/theme.dart' as storeItTheme;
 
 void main() => runApp(MyApp());
@@ -27,8 +29,8 @@ class _ScreenState extends State<Screen> {
 
   final _screens = <Widget>[
     HomeScreen(),
-    Center(child: Text('Product toevoegen')),
-    Center(child: Text('Voorkeuren')),
+    AddProductScreen(),
+    PreferencesScreen(),
   ];
 
   static const _fragmentTitles = [
@@ -37,7 +39,7 @@ class _ScreenState extends State<Screen> {
     'Voorkeuren',
   ];
 
-  static const _bottomNavItems = <Icon>[
+  static const _bottomNavItems = [
     Icon(Icons.home),
     Icon(Icons.add_circle_outline),
     Icon(Icons.tune),
@@ -46,10 +48,20 @@ class _ScreenState extends State<Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text(_fragmentTitles.elementAt(_selectedTabIndex)),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(80.0),
+        child: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          title: Text(
+            _fragmentTitles.elementAt(_selectedTabIndex),
+            style: TextStyle(
+              color: Theme.of(context).textTheme.title.color,
+              fontSize: 22.0,
+              fontFamily: 'Asap',
+            ),
+          ),
+        ),
       ),
       body: Container(
         margin: EdgeInsets.symmetric(horizontal: 22.0),
