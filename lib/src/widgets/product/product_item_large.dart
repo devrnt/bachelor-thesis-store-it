@@ -22,7 +22,7 @@ class ProductItemLarge extends StatelessWidget {
           )
         ],
       ),
-      height: MediaQuery.of(context).size.height / 1.65,
+      height: MediaQuery.of(context).size.height / 1.60,
       child: Column(
         children: [
           Flexible(
@@ -31,7 +31,7 @@ class ProductItemLarge extends StatelessWidget {
               child: FadeInImage.assetNetwork(
                 placeholder: assetPath,
                 image: product.imageUrl,
-                fit: BoxFit.cover,
+                fit: BoxFit.fitWidth,
                 fadeInDuration: const Duration(milliseconds: 350),
               ),
             ),
@@ -50,6 +50,7 @@ class ProductItemLarge extends StatelessWidget {
                       child: Text(
                         '${product.title}',
                         maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.title,
                       ),
                     ),
@@ -58,6 +59,7 @@ class ProductItemLarge extends StatelessWidget {
                       child: Text(
                         '${product.description}',
                         maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.caption,
                       ),
                     ),

@@ -4,7 +4,7 @@ class ProductImage extends StatelessWidget {
   final String url;
   final BoxFit boxFit;
 
-  ProductImage({@required this.url, this.boxFit = BoxFit.cover});
+  ProductImage({@required this.url, this.boxFit = BoxFit.fitHeight});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class ProductImage extends StatelessWidget {
           placeholder: assetPath,
           image: url,
           fit: boxFit,
-          alignment: Alignment.topCenter,
+          alignment: Alignment.center,
           fadeInDuration: const Duration(milliseconds: 350),
         ),
       ),
