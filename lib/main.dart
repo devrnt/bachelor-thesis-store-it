@@ -1,13 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:store_it/src/models/preferences.dart';
 import 'package:store_it/src/models/store.dart';
 import 'package:store_it/src/screens/add_product_screen.dart';
 import 'package:store_it/src/screens/home_screen.dart';
 import 'package:store_it/src/screens/preferences_screen.dart';
 import 'package:store_it/src/theme/theme.dart' as storeItTheme;
 
-void main() => runApp(MyApp());
+void main() => runApp(
+      ChangeNotifierProvider(
+        create: (context) => Preferences(),
+        child: MyApp(),
+      ),
+    );
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -15,10 +21,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => Store(),
-      child: MaterialApp(
-        title: 'Store It',
-        theme: storeItTheme.Theme.lightTheme,
-        home: Screen(),
+      child: Consumer<Preferences>(
+        builder: (context, model, child) {
+          return MaterialApp(
+            title: 'Store It',
+            theme: model.isDarkTheme
+                ? storeItTheme.Theme.darkTheme
+                : storeItTheme.Theme.lightTheme,
+            home: Screen(),
+          );
+        },
       ),
     );
   }
