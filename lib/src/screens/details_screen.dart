@@ -30,7 +30,6 @@ class DetailsScreen extends StatelessWidget {
       ),
       body: Container(
         margin: EdgeInsets.symmetric(horizontal: 22.0),
-        color: Colors.white,
         child: ProductItemLarge(product: product),
       ),
     );

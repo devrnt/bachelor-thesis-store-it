@@ -45,12 +45,14 @@ class ProductItem extends StatelessWidget {
                           child: Text(
                             '${product.title}',
                             maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                             style: Theme.of(context).textTheme.title,
                           ),
                         ),
                         Text(
                           '${product.description}',
                           maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                           style: Theme.of(context).textTheme.caption,
                         ),
                       ],

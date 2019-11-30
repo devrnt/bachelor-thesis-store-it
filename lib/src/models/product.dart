@@ -9,31 +9,24 @@ class Product {
 
 final initialProducts = [
   Product(
-    title: 'Schoen',
-    description: 'Mijn schoen',
+    title: 'Adidas Schoen',
+    description: 'Adidas Grand Court',
     imageUrl:
-        'https://www.kenshoefashion.be/media//tag_stream/42459017_327060564716364_5708551427537675932_n.jpg',
-    price: 39.99,
+        'https://assets.adidas.com/images/w_840,h_840,f_auto,q_auto:sensitive,fl_lossy/1e5ac363913e427a9eafaa4601160a8a_9366/Grand_Court_Schoenen_wit_EF0103_01_standard.jpg',
+    price: 39.95,
   ),
   Product(
-    title: 'Schoen',
-    description: 'Mijn schoen',
+    title: 'Lenovo Laptop',
+    description: 'Lenovo IdeaPad S340-15IWL 81N800JVMB Azerty',
     imageUrl:
-        'https://www.kenshoefashion.be/media//tag_stream/42459017_327060564716364_5708551427537675932_n.jpg',
-    price: 39.99,
+        'https://image.coolblue.be/max/500x500/products/1252657',
+    price: 699.00,
   ),
   Product(
-    title: 'Schoen',
-    description: 'Mijn schoen',
+    title: 'Apple iPad ',
+    description: 'Apple iPad (2018) 128 GB Wifi Space Gray + Pencil',
     imageUrl:
-        'https://www.kenshoefashion.be/media//tag_stream/42459017_327060564716364_5708551427537675932_n.jpg',
-    price: 39.99,
-  ),
-  Product(
-    title: 'Schoen',
-    description: 'Mijn schoen',
-    imageUrl:
-        'https://www.kenshoefashion.be/media//tag_stream/42459017_327060564716364_5708551427537675932_n.jpg',
-    price: 39.99,
+        'https://image.coolblue.be/600x315/products/1009557',
+    price: 475.00,
   ),
 ];
