@@ -4,21 +4,25 @@ class ProductImage extends StatelessWidget {
   final String url;
   final BoxFit boxFit;
 
-  ProductImage({@required this.url, this.boxFit = BoxFit.cover});
+  ProductImage({@required this.url, this.boxFit = BoxFit.scaleDown});
 
   @override
   Widget build(BuildContext context) {
     const assetPath = 'assets/images/product-image-placeholder.png';
 
-    return Container(
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(50.0),
-        child: FadeInImage.assetNetwork(
-          placeholder: assetPath,
-          image: url,
-          fit: boxFit,
-          alignment: Alignment.topCenter,
-          fadeInDuration: const Duration(milliseconds: 350),
+    return ClipOval(
+      child: Container(
+        color: Colors.white,
+        height: 100,
+        width: 100,
+        child: ClipOval(
+          child: FadeInImage.assetNetwork(
+            placeholder: assetPath,
+            image: url,
+            fit: boxFit,
+            alignment: Alignment.center,
+            fadeInDuration: const Duration(milliseconds: 350),
+          ),
         ),
       ),
     );

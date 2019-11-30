@@ -24,6 +24,7 @@ class Theme {
       highlightColor: kAccentLight,
       scaffoldBackgroundColor: kScaffoldBackgroundDark,
       iconTheme: IconThemeData(color: kPrimaryLight),
+      errorColor: kErrorColorDark,
     );
   }
 

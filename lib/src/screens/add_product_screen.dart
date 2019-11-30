@@ -18,15 +18,15 @@ class _AddProductScreenState extends State<AddProductScreen> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(bottom: 16.0),
+              padding: const EdgeInsets.only(bottom: 18.0),
               child: ProductTextFormField(
                 hintText: 'Product naam vb. "Dell XPS 13',
                 errorText: 'Product naam is verplicht',
-                onSaved: (value) => print('saved'),
+                onSaved: (value) => print(value),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 16.0),
+              padding: const EdgeInsets.only(bottom: 18.0),
               child: ProductTextFormField(
                 keyboardType: TextInputType.multiline,
                 hintText:
@@ -36,28 +36,32 @@ class _AddProductScreenState extends State<AddProductScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 16.0),
+              padding: const EdgeInsets.only(bottom: 18.0),
               child: ProductTextFormField(
                 hintText: 'Product prijs vb. "39.39',
                 errorText: 'Product prijs is verplicht',
                 keyboardType: TextInputType.number,
-                onSaved: (value) => print('saved'),
+                onSaved: (value) => print(value),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 16.0),
+              padding: const EdgeInsets.only(bottom: 18.0),
               child: ProductTextFormField(
                 hintText: 'Product afbeelding url',
                 errorText: 'Product afbeelding url is verplicht',
                 keyboardType: TextInputType.url,
-                onSaved: (value) => print('saved'),
+                onSaved: (value) => print(value),
               ),
             ),
             StoreItButton(
               text: 'Bevestig',
+              backgroundColor:
+                  Theme.of(context).highlightColor.withOpacity(0.20),
+              textColor: Theme.of(context).accentColor,
               onPressed: () {
-                if(formKey.currentState.validate()){
+                if (formKey.currentState.validate()) {
                   // add product
+                  formKey.currentState.save();
                 }
               },
             ),
