@@ -1,24 +1,40 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:store_it/src/blocs/bloc_provider.dart';
+import 'package:store_it/src/blocs/preferences_bloc.dart';
 import 'package:store_it/src/blocs/store_bloc.dart';
 import 'package:store_it/src/screens/add_product_screen.dart';
 import 'package:store_it/src/screens/home_screen.dart';
 import 'package:store_it/src/screens/preferences_screen.dart';
 import 'package:store_it/src/theme/theme.dart' as storeItTheme;
 
-void main() => runApp(MyApp());
+void main() => runApp(
+      BlocProvider<PreferencesBloc>(
+        bloc: PreferencesBloc(),
+        child: MyApp(),
+      ),
+    );
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final preferencesBloc = BlocProvider.of<PreferencesBloc>(context);
+
     return BlocProvider<StoreBloc>(
       bloc: StoreBloc(),
-      child: MaterialApp(
-        title: 'Store It',
-        theme: storeItTheme.Theme.lightTheme,
-        home: Screen(),
+      child: StreamBuilder<bool>(
+        stream: preferencesBloc.isDarkTheme,
+        initialData: false,
+        builder: (context, snapshot) {
+          return MaterialApp(
+            title: 'Store It',
+            theme: snapshot.data
+                ? storeItTheme.Theme.darkTheme
+                : storeItTheme.Theme.lightTheme,
+            home: Screen(),
+          );
+        },
       ),
     );
   }
