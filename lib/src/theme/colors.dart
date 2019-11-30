@@ -13,3 +13,5 @@ const kAccentDark = Color(0xFF0D038C);
 
 const kScaffoldBackground = Color(0xFFF3F2FA);
 const kScaffoldBackgroundDark = Color(0xFF17161B);
+
+const kErrorColorDark = Color(0xFFFF4f59);

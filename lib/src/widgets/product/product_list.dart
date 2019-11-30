@@ -10,25 +10,34 @@ class ProductList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: BouncingScrollPhysics(),
-      itemCount: products.length,
-      itemBuilder: (_, index) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 12.0),
-          child: GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        DetailsScreen(product: products[index]),
-                  ));
+    return products.isEmpty
+        ? Container(
+            child: Center(
+              child: Text(
+                'Geen producten gevonden',
+                style: TextStyle(color: Theme.of(context).textTheme.title.color),
+              ),
+            ),
+          )
+        : ListView.builder(
+            physics: BouncingScrollPhysics(),
+            itemCount: products.length,
+            itemBuilder: (_, index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12.0),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              DetailsScreen(product: products[index]),
+                        ));
+                  },
+                  child: ProductItem(product: products[index]),
+                ),
+              );
             },
-            child: ProductItem(product: products[index]),
-          ),
-        );
-      },
-    );
+          );
   }
 }

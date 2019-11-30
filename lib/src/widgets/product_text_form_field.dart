@@ -33,11 +33,12 @@ class ProductTextFormField extends StatelessWidget {
           borderSide: BorderSide(color: Theme.of(context).accentColor),
         ),
         filled: true,
-        fillColor: Colors.white,
+        fillColor: Theme.of(context).primaryColor,
         hintText: hintText,
         errorStyle: TextStyle(
           fontSize: 15.0,
           height: 0.9,
+          color: Theme.of(context).errorColor,
         ),
         hintStyle: TextStyle(color: kPrimaryLight),
       ),
