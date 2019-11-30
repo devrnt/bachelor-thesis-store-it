@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:store_it/src/blocs/bloc_provider.dart';
+import 'package:store_it/src/blocs/store_bloc.dart';
 import 'package:store_it/src/screens/add_product_screen.dart';
 import 'package:store_it/src/screens/home_screen.dart';
 import 'package:store_it/src/screens/preferences_screen.dart';
@@ -11,10 +13,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Store It',
-      theme: storeItTheme.Theme.lightTheme,
-      home: Screen(),
+    return BlocProvider<StoreBloc>(
+      bloc: StoreBloc(),
+      child: MaterialApp(
+        title: 'Store It',
+        theme: storeItTheme.Theme.lightTheme,
+        home: Screen(),
+      ),
     );
   }
 }
