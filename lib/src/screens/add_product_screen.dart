@@ -55,6 +55,9 @@ class _AddProductScreenState extends State<AddProductScreen> {
             ),
             StoreItButton(
               text: 'Bevestig',
+              backgroundColor:
+                  Theme.of(context).highlightColor.withOpacity(0.20),
+              textColor: Theme.of(context).accentColor,
               onPressed: () {
                 if (formKey.currentState.validate()) {
                   // add product

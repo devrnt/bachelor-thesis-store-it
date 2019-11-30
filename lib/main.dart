@@ -73,6 +73,7 @@ class _ScreenState extends State<Screen> {
         child: _screens.elementAt(_selectedTabIndex),
       ),
       bottomNavigationBar: BottomAppBar(
+        color: Theme.of(context).primaryColor,
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
