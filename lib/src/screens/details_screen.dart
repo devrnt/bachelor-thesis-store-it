@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_it/src/models/product.dart';
+import 'package:store_it/src/redux/models/product.dart';
 import 'package:store_it/src/widgets/product/product_item_large.dart';
 
 class DetailsScreen extends StatelessWidget {

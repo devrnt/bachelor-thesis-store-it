@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_it/src/models/product.dart';
+import 'package:store_it/src/redux/models/product.dart';
 import 'package:store_it/src/widgets/store_it_button.dart';
 
 class ProductItemLarge extends StatelessWidget {

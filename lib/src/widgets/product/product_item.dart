@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_it/src/models/product.dart';
-import 'package:store_it/src/theme/colors.dart';
+import 'package:store_it/src/redux/models/product.dart';
 import 'package:store_it/src/widgets/product/product_image.dart';
 
 class ProductItem extends StatelessWidget {
