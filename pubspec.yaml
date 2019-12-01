@@ -16,6 +16,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   mobx_codegen: ^0.3.10+1
+  build_runner: ^1.7.1
 
 flutter:
   uses-material-design: true
