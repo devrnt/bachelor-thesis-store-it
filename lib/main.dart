@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux/redux.dart';
+import 'package:store_it/src/redux/models/app_state.dart';
+import 'package:store_it/src/redux/reducers/app_state_reducer.dart';
 import 'package:store_it/src/screens/add_product_screen.dart';
 import 'package:store_it/src/screens/home_screen.dart';
 import 'package:store_it/src/screens/preferences_screen.dart';
@@ -8,13 +12,21 @@ import 'package:store_it/src/theme/theme.dart' as storeItTheme;
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  final reduxStore = Store<AppState>(
+    appReducer,
+    initialState: AppState.initial(),
+  );
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Store It',
-      theme: storeItTheme.Theme.lightTheme,
-      home: Screen(),
+    return StoreProvider(
+      store: reduxStore,
+      child: MaterialApp(
+        title: 'Store It',
+        theme: storeItTheme.Theme.lightTheme,
+        home: Screen(),
+      ),
     );
   }
 }
