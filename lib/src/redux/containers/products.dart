@@ -3,8 +3,8 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 import 'package:store_it/src/redux/models/app_state.dart';
 import 'package:store_it/src/redux/models/product.dart';
+import 'package:store_it/src/redux/presentation/home_screen.dart';
 import 'package:store_it/src/selectors/selectors.dart';
-import 'package:store_it/src/widgets/product/product_list.dart';
 
 class Products extends StatelessWidget {
   @override
@@ -12,9 +12,7 @@ class Products extends StatelessWidget {
     return StoreConnector<AppState, _ViewModel>(
       converter: _ViewModel.fromStore,
       builder: (context, viewmodel) {
-        return ProductList(
-          products: viewmodel.products,
-        );
+        return HomeScreen(products: viewmodel.products);
       },
     );
   }

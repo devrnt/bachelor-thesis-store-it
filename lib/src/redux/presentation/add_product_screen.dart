@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:store_it/src/redux/containers/add_product.dart';
 import 'package:store_it/src/widgets/product_text_form_field.dart';
 import 'package:store_it/src/widgets/store_it_button.dart';
 
 class AddProductScreen extends StatefulWidget {
+  final OnSaveCallback onSave;
+
+  AddProductScreen({@required this.onSave});
+
   @override
   _AddProductScreenState createState() => _AddProductScreenState();
 }
 
 class _AddProductScreenState extends State<AddProductScreen> {
   final formKey = GlobalKey<FormState>();
+
+  String title, description, imageUrl;
+  num price;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +30,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
               child: ProductTextFormField(
                 hintText: 'Product naam vb. "Dell XPS 13',
                 errorText: 'Product naam is verplicht',
-                onSaved: (value) => print(value),
+                onSaved: (value) => title = value,
               ),
             ),
             Padding(
@@ -32,7 +40,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 hintText:
                     'Product beschrijving vb. "Gloednieuwe Dell XPS 13 laptop',
                 errorText: 'Product beschrijving is verplicht',
-                onSaved: (value) => print(value),
+                onSaved: (value) => description = value,
               ),
             ),
             Padding(
@@ -41,7 +49,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 hintText: 'Product prijs vb. "39.39',
                 errorText: 'Product prijs is verplicht',
                 keyboardType: TextInputType.number,
-                onSaved: (value) => print(value),
+                onSaved: (value) => price = double.parse(value),
               ),
             ),
             Padding(
@@ -50,7 +58,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 hintText: 'Product afbeelding url',
                 errorText: 'Product afbeelding url is verplicht',
                 keyboardType: TextInputType.url,
-                onSaved: (value) => print(value),
+                onSaved: (value) => imageUrl = value,
               ),
             ),
             StoreItButton(
@@ -62,6 +70,14 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 if (formKey.currentState.validate()) {
                   // add product
                   formKey.currentState.save();
+                  widget.onSave(title, description, price, imageUrl);
+
+                  formKey.currentState.reset();
+
+                  final snackbar = SnackBar(
+                      backgroundColor: Theme.of(context).accentColor,
+                      content: Text('Product toegevoegd aan de winkel'));
+                  Scaffold.of(context).showSnackBar(snackbar);
                 }
               },
             ),
