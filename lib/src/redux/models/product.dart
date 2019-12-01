@@ -1,8 +1,11 @@
+import 'package:flutter/foundation.dart';
+
+@immutable
 class Product {
-  String title;
-  String description;
-  String imageUrl;
-  num price;
+  final String title;
+  final String description;
+  final String imageUrl;
+  final num price;
 
   Product({this.title, this.description, this.imageUrl, this.price});
 }
