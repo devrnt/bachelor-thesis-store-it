@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
+import 'package:store_it/src/redux/containers/add_product.dart';
+import 'package:store_it/src/redux/containers/products.dart';
 import 'package:store_it/src/redux/models/app_state.dart';
 import 'package:store_it/src/redux/reducers/app_state_reducer.dart';
-import 'package:store_it/src/screens/add_product_screen.dart';
-import 'package:store_it/src/screens/home_screen.dart';
 import 'package:store_it/src/screens/preferences_screen.dart';
 import 'package:store_it/src/theme/theme.dart' as storeItTheme;
 
@@ -40,8 +40,8 @@ class _ScreenState extends State<Screen> {
   var _selectedTabIndex = 0;
 
   final _screens = <Widget>[
-    HomeScreen(),
-    AddProductScreen(),
+    Products(),
+    AddProduct(),
     PreferencesScreen(),
   ];
 
