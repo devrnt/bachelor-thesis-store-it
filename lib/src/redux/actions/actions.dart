@@ -18,3 +18,5 @@ class RemoveProductAction {
 
   RemoveProductAction(this.product);
 }
+
+class ToggleThemeAction {}
