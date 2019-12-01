@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:store_it/src/redux/containers/product_details.dart';
 import 'package:store_it/src/redux/models/product.dart';
-import 'package:store_it/src/screens/details_screen.dart';
 import 'package:store_it/src/widgets/product/product_item.dart';
 
 class ProductList extends StatelessWidget {
@@ -31,7 +31,7 @@ class ProductList extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              DetailsScreen(product: products[index]),
+                              ProductDetails(product: products[index]),
                         ));
                   },
                   child: ProductItem(product: products[index]),

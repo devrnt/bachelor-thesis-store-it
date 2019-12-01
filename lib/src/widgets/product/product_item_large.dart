@@ -1,12 +1,19 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:store_it/src/redux/models/product.dart';
 import 'package:store_it/src/widgets/store_it_button.dart';
 
 class ProductItemLarge extends StatelessWidget {
   final Product product;
+  final Function onRemove;
+
   static const assetPath = 'assets/images/product-image-placeholder.png';
 
-  ProductItemLarge({@required this.product});
+  ProductItemLarge({
+    @required this.product,
+    @required this.onRemove,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +82,17 @@ class ProductItemLarge extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 20.0),
                       child: StoreItButton(
                         text: 'Verwijder',
-                        onPressed: () => print('delete product'),
+                        onPressed: () {
+                          onRemove();
+
+                          final snackbar = SnackBar(
+                              backgroundColor: Theme.of(context).accentColor,
+                              content:
+                                  Text('Product verwijderd uit de winkel'));
+                          Scaffold.of(context).showSnackBar(snackbar);
+                          Timer(Duration(seconds: 2),
+                              () => Navigator.of(context).pop());
+                        },
                         backgroundColor:
                             Theme.of(context).highlightColor.withOpacity(0.20),
                         textColor: Theme.of(context).accentColor,
