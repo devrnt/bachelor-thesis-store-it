@@ -3,30 +3,43 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 import 'package:store_it/src/redux/containers/add_product.dart';
+import 'package:store_it/src/redux/containers/preferences.dart';
 import 'package:store_it/src/redux/containers/products.dart';
 import 'package:store_it/src/redux/models/app_state.dart';
 import 'package:store_it/src/redux/reducers/app_state_reducer.dart';
-import 'package:store_it/src/screens/preferences_screen.dart';
+import 'package:store_it/src/selectors/selectors.dart';
 import 'package:store_it/src/theme/theme.dart' as storeItTheme;
 
-void main() => runApp(MyApp());
+void main() => runApp(MyAppWithStore());
 
-class MyApp extends StatelessWidget {
+class MyAppWithStore extends StatelessWidget {
   final reduxStore = Store<AppState>(
     appReducer,
     initialState: AppState.initial(),
   );
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return StoreProvider(
       store: reduxStore,
-      child: MaterialApp(
-        title: 'Store It',
-        theme: storeItTheme.Theme.lightTheme,
-        home: Screen(),
-      ),
+      child: MyApp(),
+    );
+  }
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return StoreBuilder<AppState>(
+      builder: (context, store) {
+        return MaterialApp(
+          title: 'Store It',
+          theme: isDarkThemeSelector(store.state)
+              ? storeItTheme.Theme.darkTheme
+              : storeItTheme.Theme.lightTheme,
+          home: Screen(),
+        );
+      },
     );
   }
 }
@@ -42,7 +55,7 @@ class _ScreenState extends State<Screen> {
   final _screens = <Widget>[
     Products(),
     AddProduct(),
-    PreferencesScreen(),
+    Preferences(),
   ];
 
   static const _fragmentTitles = [
