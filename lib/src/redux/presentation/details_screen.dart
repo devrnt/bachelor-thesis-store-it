@@ -4,9 +4,14 @@ import 'package:store_it/src/widgets/product/product_item_large.dart';
 
 class DetailsScreen extends StatelessWidget {
   final Product product;
+  final Function onRemove;
+
   static const assetPath = 'assets/images/product-image-placeholder.png';
 
-  DetailsScreen({@required this.product});
+  DetailsScreen({
+    @required this.product,
+    @required this.onRemove,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +35,10 @@ class DetailsScreen extends StatelessWidget {
       ),
       body: Container(
         margin: EdgeInsets.symmetric(horizontal: 22.0),
-        child: ProductItemLarge(product: product),
+        child: ProductItemLarge(
+          product: product,
+          onRemove: onRemove,
+        ),
       ),
     );
   }
