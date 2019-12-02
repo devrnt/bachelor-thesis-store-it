@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:store_it/src/mobx/store/product_store.dart';
+import 'package:store_it/src/mobx/store/product-store/product_store.dart';
 import 'package:store_it/src/screens/add_product_screen.dart';
 import 'package:store_it/src/screens/home_screen.dart';
 import 'package:store_it/src/screens/preferences_screen.dart';

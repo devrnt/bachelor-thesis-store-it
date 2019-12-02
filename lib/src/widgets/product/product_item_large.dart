@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:store_it/src/mobx/store/product_store.dart';
+import 'package:store_it/src/mobx/store/product-store/product_store.dart';
 import 'package:store_it/src/models/product.dart';
 import 'package:store_it/src/widgets/store_it_button.dart';
 
