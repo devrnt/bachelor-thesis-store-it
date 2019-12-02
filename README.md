@@ -17,6 +17,12 @@ For every approach, listed above, is a branch created. Switch to the desired sta
 flutter run
 ```
 
+## MobX
+If any code for MobX is in need for change, run:
+```
+flutter packages pub run build_runner watch
+```
+
 ## Demo
 Product list        |  Product details
 :-------------------------:|:-------------------------:
