@@ -1,24 +1,39 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
+import 'package:store_it/src/mobx/store/main_store.dart';
 import 'package:store_it/src/mobx/store/product-store/product_store.dart';
 import 'package:store_it/src/screens/add_product_screen.dart';
 import 'package:store_it/src/screens/home_screen.dart';
 import 'package:store_it/src/screens/preferences_screen.dart';
 import 'package:store_it/src/theme/theme.dart' as storeItTheme;
 
-void main() => runApp(MyApp());
+void main() => runApp(
+      Provider(
+        create: (context) => MainStore(),
+        child: MyApp(),
+      ),
+    );
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final preferencesStore = Provider.of<MainStore>(context).preferencesStore;
+
     return Provider<ProductStore>(
       create: (context) => ProductStore(),
-      child: MaterialApp(
-        title: 'Store It',
-        theme: storeItTheme.Theme.lightTheme,
-        home: Screen(),
+      child: Observer(
+        builder: (context) {
+          return MaterialApp(
+            title: 'Store It',
+            theme: preferencesStore.isDarkTheme
+                ? storeItTheme.Theme.darkTheme
+                : storeItTheme.Theme.lightTheme,
+            home: Screen(),
+          );
+        },
       ),
     );
   }
