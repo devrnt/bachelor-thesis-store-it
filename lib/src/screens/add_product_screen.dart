@@ -43,7 +43,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
             Padding(
               padding: const EdgeInsets.only(bottom: 18.0),
               child: ProductTextFormField(
-                hintText: 'Product prijs vb. "39.39',
+                hintText: 'Product prijs vb. "39.39"',
                 errorText: 'Product prijs is verplicht',
                 keyboardType: TextInputType.number,
                 onSaved: (value) => price = double.parse(value),
