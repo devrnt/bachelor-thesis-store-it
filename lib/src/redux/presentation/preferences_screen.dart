@@ -21,6 +21,7 @@ class PreferencesScreen extends StatelessWidget {
             style: Theme.of(context).textTheme.caption,
           ),
           Switch(
+            key: Key('theme_switch'),
             activeColor: Theme.of(context).accentColor,
             value: isDarkTheme,
             onChanged: (value) => onToggleTheme(),

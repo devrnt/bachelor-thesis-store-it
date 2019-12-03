@@ -16,6 +16,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_driver:
+    sdk: flutter
+  test: any
+  git: ^1.0.1
+  t_stats: ^2.0.0
+  logging: ^0.11.3+2
 
 flutter:
   uses-material-design: true
