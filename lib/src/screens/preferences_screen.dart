@@ -22,6 +22,7 @@ class PreferencesScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.caption,
                   ),
                   Switch(
+                    key: Key('theme_switch'),
                     activeColor: Theme.of(context).accentColor,
                     value: snapshot.data,
                     onChanged: (_) => preferencesBloc.toggleTheme.add(_),
@@ -31,9 +32,7 @@ class PreferencesScreen extends StatelessWidget {
             );
             break;
           default:
-            return Center(
-              child: CircularProgressIndicator()
-            );
+            return Center(child: CircularProgressIndicator());
         }
       },
     );
