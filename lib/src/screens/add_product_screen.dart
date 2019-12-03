@@ -27,11 +27,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
               child: ProductTextFormField(
                 hintText: 'Product naam vb. "Dell XPS 13',
                 errorText: 'Product naam is verplicht',
-                onSaved: (value) {
-                  setState(() {
-                    title = value;
-                  });
-                },
+                onSaved: (value) => title = value,
               ),
             ),
             Padding(
@@ -41,11 +37,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 hintText:
                     'Product beschrijving vb. "Gloednieuwe Dell XPS 13 laptop',
                 errorText: 'Product beschrijving is verplicht',
-                onSaved: (value) {
-                  setState(() {
-                    description = value;
-                  });
-                },
+                onSaved: (value) => description = value,
               ),
             ),
             Padding(
@@ -54,11 +46,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 hintText: 'Product prijs vb. "39.39',
                 errorText: 'Product prijs is verplicht',
                 keyboardType: TextInputType.number,
-                onSaved: (value) {
-                  setState(() {
-                    price = double.parse(value);
-                  });
-                },
+                onSaved: (value) => double.parse(value),
               ),
             ),
             Padding(
@@ -67,11 +55,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 hintText: 'Product afbeelding url',
                 errorText: 'Product afbeelding url is verplicht',
                 keyboardType: TextInputType.url,
-                onSaved: (value) {
-                  setState(() {
-                    imageUrl = value;
-                  });
-                },
+                onSaved: (value) => imageUrl = value,
               ),
             ),
             StoreItButton(
