@@ -16,6 +16,13 @@ void main() => runApp(
       ),
     );
 
+class _BottomNavigationItem {
+  final Icon icon;
+  final String toolTip;
+
+  _BottomNavigationItem({this.icon, this.toolTip});
+}
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -59,10 +66,11 @@ class _ScreenState extends State<Screen> {
     'Voorkeuren',
   ];
 
-  static const _bottomNavItems = [
-    Icon(Icons.home),
-    Icon(Icons.add_circle_outline),
-    Icon(Icons.tune),
+  static final _bottomNavItems = <_BottomNavigationItem>[
+    _BottomNavigationItem(icon: Icon(Icons.home), toolTip: 'home_tab'),
+    _BottomNavigationItem(
+        icon: Icon(Icons.add_circle_outline), toolTip: 'add_product_tab'),
+    _BottomNavigationItem(icon: Icon(Icons.tune), toolTip: 'preferences_tab'),
   ];
 
   @override
@@ -92,11 +100,12 @@ class _ScreenState extends State<Screen> {
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: _bottomNavItems.map((icon) {
-            final iconIndex = _bottomNavItems.indexOf(icon);
+          children: _bottomNavItems.map((bottomNavItem) {
+            final iconIndex = _bottomNavItems.indexOf(bottomNavItem);
             return IconButton(
+              tooltip: bottomNavItem.toolTip,
               disabledColor: Theme.of(context).accentColor,
-              icon: icon,
+              icon: bottomNavItem.icon,
               onPressed: _selectedTabIndex == iconIndex
                   // don't rebuild if the new tab index is the same as the current
                   ? null

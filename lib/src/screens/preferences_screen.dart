@@ -19,6 +19,7 @@ class PreferencesScreen extends StatelessWidget {
           ),
           Observer(builder: (context) {
             return Switch(
+              key: Key('theme_switch'),
               activeColor: Theme.of(context).accentColor,
               value: preferencesStore.isDarkTheme,
               onChanged: (value) => preferencesStore.toggleTheme(),
