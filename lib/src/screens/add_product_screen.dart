@@ -20,6 +20,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
             Padding(
               padding: const EdgeInsets.only(bottom: 18.0),
               child: ProductTextFormField(
+                key: Key('title_input'),
                 hintText: 'Product naam vb. "Dell XPS 13',
                 errorText: 'Product naam is verplicht',
                 onSaved: (value) => print(value),
@@ -28,6 +29,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
             Padding(
               padding: const EdgeInsets.only(bottom: 18.0),
               child: ProductTextFormField(
+                key: Key('description_input'),
                 keyboardType: TextInputType.multiline,
                 hintText:
                     'Product beschrijving vb. "Gloednieuwe Dell XPS 13 laptop',
@@ -38,6 +40,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
             Padding(
               padding: const EdgeInsets.only(bottom: 18.0),
               child: ProductTextFormField(
+                key: Key('price_input'),
                 hintText: 'Product prijs vb. "39.39',
                 errorText: 'Product prijs is verplicht',
                 keyboardType: TextInputType.number,
@@ -47,6 +50,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
             Padding(
               padding: const EdgeInsets.only(bottom: 18.0),
               child: ProductTextFormField(
+                key: Key('image_url_input'),
                 hintText: 'Product afbeelding url',
                 errorText: 'Product afbeelding url is verplicht',
                 keyboardType: TextInputType.url,

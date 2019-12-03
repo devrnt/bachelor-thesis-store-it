@@ -13,6 +13,7 @@ class PreferencesScreen extends StatelessWidget {
             style: Theme.of(context).textTheme.caption,
           ),
           Switch(
+            key: Key('theme_switch'),
             activeColor: Theme.of(context).accentColor,
             value: false,
             onChanged: (value) => print('state should be updated'),

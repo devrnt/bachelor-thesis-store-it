@@ -20,12 +20,14 @@ class ProductList extends StatelessWidget {
             ),
           )
         : ListView.builder(
+            key: Key('product_list'),
             physics: BouncingScrollPhysics(),
             itemCount: products.length,
             itemBuilder: (_, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 12.0),
                 child: GestureDetector(
+                  key: Key('product_item_$index'),
                   onTap: () {
                     Navigator.push(
                         context,
