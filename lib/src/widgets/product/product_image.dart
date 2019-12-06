@@ -11,7 +11,7 @@ class ProductImage extends StatelessWidget {
     const assetPath = 'assets/images/product-image-placeholder.png';
 
     return Container(
-      color: Colors.white,
+      color: Theme.of(context).primaryColor,
       height: 87,
       width: 87,
       child: ClipRRect(
