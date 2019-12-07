@@ -38,6 +38,7 @@ Future<void> fillAndSubmitForm(FlutterDriver driver) async {
   await driver.waitFor(find.text(imageUrl));
 
   await driver.tap(submitButton);
+  await Future<void>.delayed(const Duration(seconds: 2));
 }
 
 Future<void> save(Timeline timeline) async {
