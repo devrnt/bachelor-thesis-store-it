@@ -84,6 +84,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                   formKey.currentState.reset();
 
                   final snackbar = SnackBar(
+                      duration: Duration(seconds: 2),
                       backgroundColor: Theme.of(context).accentColor,
                       content: Text('Product toegevoegd aan de winkel'));
                   Scaffold.of(context).showSnackBar(snackbar);
