@@ -15,7 +15,7 @@ class ProductTextFormField extends StatelessWidget {
     this.initialValue = '',
     this.keyboardType = TextInputType.text,
     Key key,
-  }):super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
