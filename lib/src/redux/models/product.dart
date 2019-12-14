@@ -21,15 +21,13 @@ final initialProducts = [
   Product(
     title: 'Lenovo Laptop',
     description: 'Lenovo IdeaPad S340-15IWL 81N800JVMB Azerty',
-    imageUrl:
-        'https://image.coolblue.be/max/500x500/products/1252657',
+    imageUrl: 'https://image.coolblue.be/max/500x500/products/1252657',
     price: 699.00,
   ),
   Product(
     title: 'Apple iPad ',
     description: 'Apple iPad (2018) 128 GB Wifi Space Gray + Pencil',
-    imageUrl:
-        'https://image.coolblue.be/600x315/products/1009557',
+    imageUrl: 'https://image.coolblue.be/600x315/products/1009557',
     price: 475.00,
   ),
 ];

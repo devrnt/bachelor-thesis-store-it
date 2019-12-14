@@ -1,4 +1,3 @@
-
 import 'package:store_it/src/redux/models/product.dart';
 
 class SetProductsAction {

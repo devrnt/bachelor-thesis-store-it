@@ -87,11 +87,9 @@ class ProductItemLarge extends StatelessWidget {
 
                           final snackbar = SnackBar(
                               backgroundColor: Theme.of(context).accentColor,
-                              content:
-                                  Text('Product verwijderd uit de winkel'));
+                              content: Text('Product verwijderd uit de winkel'));
                           Scaffold.of(context).showSnackBar(snackbar);
-                          Timer(Duration(seconds: 2),
-                              () => Navigator.of(context).pop());
+                          Timer(Duration(seconds: 2), () => Navigator.of(context).pop());
                         },
                         backgroundColor:
                             Theme.of(context).highlightColor.withOpacity(0.20),

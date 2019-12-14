@@ -39,8 +39,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
               child: ProductTextFormField(
                 key: Key('description_input'),
                 keyboardType: TextInputType.multiline,
-                hintText:
-                    'Product beschrijving vb. "Gloednieuwe Dell XPS 13 laptop',
+                hintText: 'Product beschrijving vb. "Gloednieuwe Dell XPS 13 laptop',
                 errorText: 'Product beschrijving is verplicht',
                 onSaved: (value) => description = value,
               ),
@@ -67,8 +66,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
             ),
             StoreItButton(
               text: 'Bevestig',
-              backgroundColor:
-                  Theme.of(context).highlightColor.withOpacity(0.20),
+              backgroundColor: Theme.of(context).highlightColor.withOpacity(0.20),
               textColor: Theme.of(context).accentColor,
               onPressed: () {
                 if (formKey.currentState.validate()) {

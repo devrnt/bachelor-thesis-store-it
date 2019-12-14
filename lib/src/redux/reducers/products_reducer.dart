@@ -16,7 +16,6 @@ List<Product> _addProduct(List<Product> products, AddProductAction action) {
   return List.from(products)..add(action.product);
 }
 
-List<Product> _removeProduct(
-    List<Product> products, RemoveProductAction action) {
+List<Product> _removeProduct(List<Product> products, RemoveProductAction action) {
   return List.from(products)..remove(action.product);
 }

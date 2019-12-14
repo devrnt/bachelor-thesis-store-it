@@ -19,8 +19,7 @@ class DetailsScreen extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(80.0),
         child: AppBar(
-          iconTheme:
-              IconThemeData(color: Theme.of(context).textTheme.title.color),
+          iconTheme: IconThemeData(color: Theme.of(context).textTheme.title.color),
           backgroundColor: Colors.transparent,
           elevation: 0,
           title: Text(
