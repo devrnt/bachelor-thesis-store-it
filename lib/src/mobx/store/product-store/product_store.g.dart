@@ -26,8 +26,7 @@ mixin _$ProductStore on _ProductStore, Store {
     }, _$productsAtom, name: '${_$productsAtom.name}_set');
   }
 
-  final _$_ProductStoreActionController =
-      ActionController(name: '_ProductStore');
+  final _$_ProductStoreActionController = ActionController(name: '_ProductStore');
 
   @override
   void addProduct(Product product) {
