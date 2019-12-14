@@ -10,12 +10,11 @@ class Store extends Model {
     _products.add(product);
 
     notifyListeners();
-  } 
+  }
 
   void removeProduct(Product product) {
     _products.remove(product);
 
     notifyListeners();
   }
-
 }
