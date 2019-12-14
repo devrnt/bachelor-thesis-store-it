@@ -53,7 +53,7 @@ This will do an automated run-through of the app, and will save the output to fi
 To execute several runs at once, run the following command:
 
 ```sh
-DESC="my change" bash -c 'for i in {1..5}; do flutter drive --target=test_driver/app.dart --profile; sleep 1; done'
+DESC="my change" bash -c 'for i in {1..30}; do flutter drive --target=test_driver/app.dart --profile; sleep 1; done'
 ```
 
 With several identical walkthroughs it's possible to visually check variance between runs. Even with box plots,
@@ -61,3 +61,6 @@ these nuances get lost in the summary stats, so it's hard to see whether a chang
 brought any performance improvement or not. Running several times also eliminates
 the effect of extremely bad luck, like for example when Android decides to update some app while
 test is running.
+
+### Graphs
+To generate the graphs with the R-script, the different tsv files should be merged into one big tsv file. The tsv file should contain every approach looped 30 times, with the description set to the approach. To keep things simple, copy and paste `durations.tsv` and `perf_stats.tsv` to the next approach (branch). 
