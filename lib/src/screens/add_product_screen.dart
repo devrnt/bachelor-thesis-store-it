@@ -69,8 +69,6 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 if (formKey.currentState.validate()) {
                   // add product
                   formKey.currentState.save();
-                  print(title);
-                  print(price);
                   final newProduct = Product(
                     title: title,
                     description: description,
