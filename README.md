@@ -58,3 +58,11 @@ test is running.
 
 ### Graphs
 To generate the graphs with the R-script, the different tsv files should be merged into one big tsv file. The tsv file should contain every approach looped 30 times, with the description set to the approach. To keep things simple, copy and paste `durations.tsv` and `perf_stats.tsv` to the next approach (branch). 
+
+## Experiment Results
+To get all the results from every approach run:
+```sh
+./get_all_results.sh [amount_of_runs]
+```
+The command defaults to 30 runs if no [amount_of_runs] is specified.
+This command will execute the intergration tests [amount_of_runs] times for every approach
