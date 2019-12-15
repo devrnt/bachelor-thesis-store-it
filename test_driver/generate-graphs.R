@@ -1,5 +1,6 @@
 # Load data from disk.
 durations <- read.csv("test_driver/durations.tsv", sep = "\t")
+durations <- durations[complete.cases(durations),]
 
 # Uncomment and modify the following line to focus on just a few selected runs.
 # durations <- durations[durations$description == "baseline" | durations$description == "statvalue-always-notifies" ,]
@@ -30,6 +31,8 @@ dev.off()
 # CPU time chart
 pdf("test_driver/cpu_time.pdf", width = 4, height = 8)
 stats <- read.csv("test_driver/perf_stats.tsv", sep = "\t")
+stats <- stats[complete.cases(stats),]
+
 mean_with_moe <- function(x) { 
   m <- mean(x)
   std_dev <- sd(x)/sqrt(length(x))
