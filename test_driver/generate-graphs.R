@@ -42,9 +42,9 @@ mean_with_moe <- function(x) {
   colnames(df) <- c("mean", "lower", "upper")
   return(df)
 }
-m <- aggregate(expiredTasksDuration ~ description, stats, function(x) mean_with_moe(x)$mean) / 1000
-low <- aggregate(expiredTasksDuration ~ description, stats, function(x) mean_with_moe(x)$lower)  / 1000
-high <- aggregate(expiredTasksDuration ~ description, stats, function(x) mean_with_moe(x)$upper)  / 1000
+m <- aggregate(expiredTasksDuration ~ description, stats, function(x) mean_with_moe(x)$mean / 1000) 
+low <- aggregate(expiredTasksDuration ~ description, stats, function(x) mean_with_moe(x)$lower / 1000) 
+high <- aggregate(expiredTasksDuration ~ description, stats, function(x) mean_with_moe(x)$upper / 1000)
 x <- barplot(m$expiredTasksDuration, ylim = c(0, max(high$expiredTasksDuration) * 1.1), density = 5, names.arg = m$description, ylab = "CPU time (ms)")
 arrows(x, low$expiredTasksDuration, x, high$expiredTasksDuration, length=0.10, angle=90, code=3)
 title("CPU time (lower is better)")
