@@ -22,17 +22,19 @@ for i in "${!branches[@]}"; do
     next_next_branch_name="${branches[$next_next_index]/'refs/heads/'/''}"
 
     echo "============="
-    for ((i = 0; i < AMOUNT_OF_RUNS; i++)); do
-      current_run=$((i + 1))
-      echo "[${branch_name}] Executing run ${current_run} of ${AMOUNT_OF_RUNS}..."
-      # sets the description based on the branch_name
-      DESC="${branch_name}" flutter drive --target=test_driver/app.dart --profile
-      sleep 1
-    done
+    # for ((i = 0; i < AMOUNT_OF_RUNS; i++)); do
+    #   current_run=$((i + 1))
+    #   echo "[${branch_name}] Executing run ${current_run} of ${AMOUNT_OF_RUNS}..."
+    #   # sets the description based on the branch_name
+    #   DESC="${branch_name}" flutter drive --target=test_driver/app.dart --profile
+    #   sleep 1
+    # done
     echo "============="
     echo "Preparing next branch..."
+    git checkout ./pubspec.lock
     git checkout ${next_branch_name}
   else
+    git checkout save ./pubspec.lock
     git checkout ${next_branch_name}
   fi
 done
