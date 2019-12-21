@@ -5,6 +5,19 @@ durations <- durations[complete.cases(durations),]
 # Uncomment and modify the following line to focus on just a few selected runs.
 # durations <- durations[durations$description == "baseline" | durations$description == "statvalue-always-notifies" ,]
 
+# Subset for different approaches
+scopedmodel <- durations[durations$description == "scopedmodel",]
+provider <- durations[durations$description == "provider",]
+blocRxdart <- durations[durations$description == "bloc-rxdart",]
+mobx <- durations[durations$description == "mobx",]
+redux <- durations[durations$description == "redux",]
+
+# View/get summary of build time by running:
+# View(as.array(summary(scopedmodel$build)))
+
+# Get variance of build time by running:
+# var(scopedmodel$build)
+
 # Get just the IDs as a vector.
 ids <- aggregate(durations$id, by=list(durations$id), FUN=head)[1]$Group.1
 # Get just the date and time from the id.
@@ -29,7 +42,7 @@ title("Build times worst case")
 dev.off()
 
 # CPU time chart
-pdf("test_driver/cpu_time.pdf", width = 4, height = 8)
+pdf("test_driver/cpu_time.pdf", width = 6, height = 8)
 stats <- read.csv("test_driver/perf_stats.tsv", sep = "\t")
 stats <- stats[complete.cases(stats),]
 
@@ -60,11 +73,10 @@ dev.off()
 
 pdf("test_driver/rasterizations.pdf", width = 10, height = 10)
 par(mar = c(15,6,4,2)+0.1, las = 2)
-boxplot(rasterizer ~ description, durations, notch = TRUE, boxwex = 0.8, las = 2)
+boxplot(rasterizer ~ description, durations, notch = TRUE, boxwex = 0.8)
 #axis(1, at = 1:length(ids), labels = labels, las = 2, cex.axis=0.5)
 title("Rasterizer times")
 dev.off()
-
 pdf("test_driver/frame_requests.pdf", width = 10, height = 10)
 par(mar = c(15,6,4,2)+0.1, las = 2)
 boxplot(frameRequest ~ description, durations, notch = TRUE, boxwex = 0.8, las = 2)
