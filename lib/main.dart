@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:store_it/src/screens/add_product_screen.dart';
 import 'package:store_it/src/screens/home_screen.dart';
 import 'package:store_it/src/screens/preferences_screen.dart';
-import 'package:store_it/src/theme/theme.dart' as storeItTheme;
+import 'package:store_it/src/theme/theme.dart' as store_it_theme;
 
 void main() => runApp(MyApp());
 
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Store It',
-      theme: storeItTheme.Theme.lightTheme,
+      theme: store_it_theme.Theme.lightTheme,
       home: Screen(),
     );
   }

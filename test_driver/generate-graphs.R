@@ -12,11 +12,13 @@ blocRxdart <- durations[durations$description == "bloc-rxdart",]
 mobx <- durations[durations$description == "mobx",]
 redux <- durations[durations$description == "redux",]
 
-# View/get summary of build time by running:
-# View(as.array(summary(scopedmodel$build)))
 
+# View/get summary of build time by running:
+# View(as.array(summary(blocRxdart$build)))
+sd(mobx$build)
+getmode(mobx$build)
 # Get variance of build time by running:
-# var(scopedmodel$build)
+var(mobx$build)
 
 # Get just the IDs as a vector.
 ids <- aggregate(durations$id, by=list(durations$id), FUN=head)[1]$Group.1
@@ -46,21 +48,36 @@ pdf("test_driver/cpu_time.pdf", width = 6, height = 8)
 stats <- read.csv("test_driver/perf_stats.tsv", sep = "\t")
 stats <- stats[complete.cases(stats),]
 
+scopedmodelStats <- stats[stats$description == "scopedmodel",]
+providerStats <- stats[stats$description == "provider",]
+blocRxdartStas <- stats[stats$description == "bloc-rxdart",]
+mobxStats <- stats[stats$description == "mobx",]
+reduxStats <- stats[stats$description == "redux",]
+View(scopedmodelStats$expiredTasksDuration)
+var(mobxStats$expiredTasksDuration / 1000)
+
+# View(as.array(summary(blocRxdartStas$expiredTasksDuration)))
+
 mean_with_moe <- function(x) { 
   m <- mean(x)
+  # View(x)
+  # gecorrigeerde steekproef
   std_dev <- sd(x)/sqrt(length(x))
+  # kritieke waarde
   crit_val <- qt(0.975, df = length(x) - 1)
   moe <- std_dev * crit_val
   df <- data.frame(m, m - moe, m + moe)
   colnames(df) <- c("mean", "lower", "upper")
   return(df)
 }
+View(as.array(summary(blocRxdartStas$expiredTasksDuration / 1000)))
+getmode(providerStats$expiredTasksDuration / 1000) 
 m <- aggregate(expiredTasksDuration ~ description, stats, function(x) mean_with_moe(x)$mean / 1000) 
 low <- aggregate(expiredTasksDuration ~ description, stats, function(x) mean_with_moe(x)$lower / 1000) 
 high <- aggregate(expiredTasksDuration ~ description, stats, function(x) mean_with_moe(x)$upper / 1000)
-x <- barplot(m$expiredTasksDuration, ylim = c(0, max(high$expiredTasksDuration) * 1.1), density = 5, names.arg = m$description, ylab = "CPU time (ms)")
+x <- barplot(m$expiredTasksDuration, ylim = c(0, max(high$expiredTasksDuration) * 1.1), density = 5, names.arg = m$description, ylab = "CPU-tijd (ms)")
 arrows(x, low$expiredTasksDuration, x, high$expiredTasksDuration, length=0.10, angle=90, code=3)
-title("CPU time (lower is better)")
+title("CPU-tijd (minder is beter)")
 dev.off()
 
 # Build durations
@@ -85,3 +102,10 @@ title("Frame request pending times")
 dev.off()
 
 par(old.par)
+
+# Modus
+getmode <- function(v) {
+  uniqv <- unique(v)
+  uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+
